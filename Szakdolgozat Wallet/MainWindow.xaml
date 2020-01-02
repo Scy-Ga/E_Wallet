@@ -1,0 +1,60 @@
+﻿<Window x:Class="Szakdolgozat_Wallet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Szakdolgozat_Wallet"
+        mc:Ignorable="d"
+        Title="E-Wallet" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" Height="606" VerticalAlignment="Top" Width="1014" Margin="0,128,0,0">
+        <Grid HorizontalAlignment="Left" Height="586" Margin="0,10,0,0" VerticalAlignment="Top" Width="505">
+            <TabControl HorizontalAlignment="Left" Height="586" VerticalAlignment="Top" Width="505">
+                <TabItem Header="Hozzáadás/Keresés">
+                    <Grid Background="White">
+                        <TextBox x:Name="txb_kategoria" HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
+                        <Button x:Name="btn_ad" Content="Hozzá ad" HorizontalAlignment="Left" Margin="329,29,0,0" VerticalAlignment="Top" Width="134" Click="Btn_ad_Click"/>
+                        <ComboBox x:Name="cb_kategoriak" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="296"/>
+                        <DatePicker x:Name="dp_time" IsTodayHighlighted="True" HorizontalAlignment="Left" Margin="329,68,0,0" VerticalAlignment="Top" Height="32" Width="134" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Label Content="A hozzáadni kívánt kategori neve." HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="296"/>
+                        <Label Content="A már hozzáadott kategóriák legördülő listája." HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="296"/>
+                        <Label Content="Az erre a hónapra szánt kereted." HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="228"/>
+                        <TextBox x:Name="txb_haviKeret" HorizontalAlignment="Left" Height="23" Margin="10,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Összegzés">
+                    <Grid Background="White">
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="586" Margin="515,10,0,0" VerticalAlignment="Top" Width="505">
+            <DataGrid Background="White" x:Name="dg_tetelek" RowEditEnding="DataGrid_RowEditEnding" HorizontalAlignment="Left" Height="281" VerticalAlignment="Top" Width="485" CanUserAddRows="True" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Temék neve" Binding="{Binding Tetel_Neve, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Vásárlás ideje" Binding="{Binding Vasarlas_Ideje, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Menyiség" Binding="{Binding Menyiseg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Vásárlás Helye" Binding="{Binding Vasarlas_Helye, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Ára" Width="75" Binding="{Binding Erteke, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btn_tetelek" Content="Új Tétel Hozzá Adása" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Width="124" Click="Btn_tetelek_Click"/>
+            <Button x:Name="btn_Keres" Content="Keres" HorizontalAlignment="Left" Margin="168,286,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Keres_Click"/>
+            <Label Content="A még felhasználható pénz:" HorizontalAlignment="Left" Margin="10,362,0,0" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="lb_felhasznalhato" Content="" HorizontalAlignment="Left" Margin="180,362,0,0" VerticalAlignment="Top" Width="63"/>
+            <Label Content="A felhasznált pénz:" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="lb_felhasznalt" Content="" HorizontalAlignment="Left" Margin="180,393,0,0" VerticalAlignment="Top" Width="63"/>
+            <Label Content="Ennyivel lépted túl a kereted:" HorizontalAlignment="Left" Margin="10,424,0,0" VerticalAlignment="Top" Width="165"/>
+            <Label Content="Ennyi pénzed maradt:" HorizontalAlignment="Left" Margin="10,455,0,0" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="lb_tullepett" Content="" HorizontalAlignment="Left" Margin="180,424,0,0" VerticalAlignment="Top" Width="63"/>
+            <Label x:Name="lb_sporolt" Content="" HorizontalAlignment="Left" Margin="180,455,0,0" VerticalAlignment="Top" Width="63"/>
+            <Label Content="Felhasználható havi kereted:" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="lb_havikeret" Content="" HorizontalAlignment="Left" Margin="180,331,0,0" VerticalAlignment="Top" Width="63"/>
+
+        </Grid>
+
+        
+    </Grid>
+</Window>
